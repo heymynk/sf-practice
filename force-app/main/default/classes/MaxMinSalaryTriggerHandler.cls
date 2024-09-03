@@ -59,7 +59,6 @@ public with sharing class MaxMinSalaryTriggerHandler {
                     System.debug('Skipping update due to null Tech Firm Id');
                 }
             }
-            
         }
 
         if(!mapToUpdate.isEmpty()){
