@@ -2,13 +2,11 @@
  * @description       : Handler to update the "Latest Case Inserted" field on the Account when a new Case is inserted.
  * @author            : Mayank Singh
  * @group             : 
- * @last modified on  : 09-02-2024
+ * @last modified on  : 09-03-2024
  * @last modified by  : Mayank Singh
 **/
 public with sharing class LatestCaseInsertedHandler {
     public static void handleLatestCaseInserted(List<Case> newCases){
-        System.debug('=== START handleLatestCaseInserted ===');
-        System.debug('Number of new Cases: ' + newCases.size());
 
         Set<Id> accIds = new Set<Id>();
 
@@ -57,7 +55,5 @@ public with sharing class LatestCaseInsertedHandler {
                 }
             }
         }
-
-        System.debug('=== END handleLatestCaseInserted ===');
     }
 }

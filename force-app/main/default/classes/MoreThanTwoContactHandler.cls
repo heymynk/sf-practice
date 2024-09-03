@@ -7,8 +7,6 @@
 **/
 public with sharing class MoreThanTwoContactHandler {
     public static void handleContactTrigger(List<Contact> newCon) {
-        System.debug('=== START handleContactTrigger ===');
-        System.debug('Number of new Contacts: ' + newCon.size());
 
         // Step 1: Fetch Parent AccountIds of new contacts which are inserted and store them in a Set
         Set<Id> accIds = new Set<Id>();
@@ -27,7 +25,6 @@ public with sharing class MoreThanTwoContactHandler {
                                          FROM Contact 
                                          WHERE AccountId IN :accIds 
                                          GROUP BY AccountId];
-        System.debug('Number of Aggregate Results: ' + aggList.size());
 
         if (!aggList.isEmpty()) {
             for (AggregateResult ar : aggList) {

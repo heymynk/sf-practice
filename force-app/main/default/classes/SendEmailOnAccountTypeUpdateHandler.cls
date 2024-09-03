@@ -7,9 +7,6 @@
 **/
 public with sharing class SendEmailOnAccountTypeUpdateHandler {
     public static void sendEmailOnTypeChange(List<Account> newAccounts, Map<Id, Account> oldAccounts) {
-        System.debug('=== START sendEmailOnTypeChange ===');
-        System.debug('Number of new Accounts: ' + newAccounts.size());
-
         // Step 1: Fetch the Parent AccountIds where the Type is changed
         Set<Id> accountIds = new Set<Id>();
         if (!newAccounts.isEmpty()) {
@@ -24,7 +21,6 @@ public with sharing class SendEmailOnAccountTypeUpdateHandler {
 
         // Step 2: Fetch the related Contacts of the Accounts with Type changed
         List<Contact> relatedContacts = [SELECT Id, Email, LastName, AccountId FROM Contact WHERE AccountId IN :accountIds];
-        System.debug('Number of related Contacts: ' + relatedContacts.size());
 
         List<Messaging.SingleEmailMessage> emailList = new List<Messaging.SingleEmailMessage>();
 
@@ -59,7 +55,5 @@ public with sharing class SendEmailOnAccountTypeUpdateHandler {
                 }
             }
         }
-
-        System.debug('=== END sendEmailOnTypeChange ===');
     }
 }
