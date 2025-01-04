@@ -16,6 +16,6 @@ trigger SumOfAllRealatedOppTrigger on Opportunity (after insert, after update, a
         SumOfAllRealatedOppTriggerHandler.sumOfOpportunity(Trigger.new, Trigger.oldMap);
         
     } else if (Trigger.isAfter && Trigger.isDelete) {
-        SumOfAllRealatedOppTriggerHandler.sumOfOpportunity( null,Trigger.old);
+        SumOfAllRealatedOppTriggerHandler.sumOfOpportunity(Trigger.old, null);
     }
 }

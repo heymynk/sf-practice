@@ -2,7 +2,7 @@
  * @description       : Trigger to find Sum of all related Opportunities Amount of an Account.
  * @author            : Mayank Singh
  * @group             : 
- * @last modified on  : 09-03-2024
+ * @last modified on  : 01-04-2025
  * @last modified by  : Mayank Singh
 **/
 public with sharing class SumOfAllRealatedOppTriggerHandler {
@@ -39,9 +39,9 @@ public with sharing class SumOfAllRealatedOppTriggerHandler {
             for (Id accId : accIds) {
                 Account acc = new Account(Id = accId);
                 if (accIdToAmountMap.containsKey(accId)) {
-                    acc.Total_Opportunity_Amount__c	 = accIdToAmountMap.get(accId); 
+                    acc.Total_Opportunity_Amount__c	 = accIdToAmountMap.get(accId); // Use the existing field name
                 } else {
-                    acc.Total_Opportunity_Amount__c	 = 0; 
+                    acc.Total_Opportunity_Amount__c	 = 0; // No Opportunities, set to 0
                 }
                 accToUpdate.add(acc);
             }

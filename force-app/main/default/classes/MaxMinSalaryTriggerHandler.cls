@@ -59,8 +59,10 @@ public with sharing class MaxMinSalaryTriggerHandler {
                     System.debug('Skipping update due to null Tech Firm Id');
                 }
             }
+            
         }
 
+        // Update the Tech_Firm__c records with the new max and min salaries
         if(!mapToUpdate.isEmpty()){
             update mapToUpdate.values();
         }
