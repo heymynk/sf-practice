@@ -2,13 +2,13 @@
  * @description       : Ensure One Primary Contact Per Account
  * @author            : Mayank Singh
  * @group             : 
- * @last modified on  : 01-04-2025
+ * @last modified on  : 01-06-2025
  * @last modified by  : Mayank Singh
 **/
 public with sharing class onePrimaryContactHandler {
     public static Boolean isRecursive = false;
 
-    public void ensureSinglePrimaryContact(List<Contact> newContacts, Map<Id, Contact> oldContactMap) {
+    public  static void ensureSinglePrimaryContact(List<Contact> newContacts, Map<Id, Contact> oldContactMap) {
         if (isRecursive) return;
         isRecursive = true;
 

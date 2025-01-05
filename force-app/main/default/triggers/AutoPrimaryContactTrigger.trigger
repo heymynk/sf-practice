@@ -1,11 +1,15 @@
 /**
- * @description       : 
+ * @description       :
  * @author            : Mayank Singh
- * @group             : 
- * @last modified on  : 01-04-2025
+ * @group             :
+ * @last modified on  : 01-06-2025
  * @last modified by  : Mayank Singh
-**/
+ **/
 trigger AutoPrimaryContactTrigger on Contact (after insert) {
-    AutoPrimaryContactHandler handler = new AutoPrimaryContactHandler();
-    handler.setPrimaryContact(Trigger.new);
+    
+    switch on Trigger.operationType {
+        when AFTER_INSERT {
+            AutoPrimaryContactHandler.setPrimaryContact(Trigger.new);
+        }
+    }
 }

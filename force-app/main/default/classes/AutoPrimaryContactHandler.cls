@@ -2,11 +2,11 @@
  * @description       : 
  * @author            : Mayank Singh
  * @group             : 
- * @last modified on  : 01-04-2025
+ * @last modified on  : 01-06-2025
  * @last modified by  : Mayank Singh
 **/
 public class AutoPrimaryContactHandler {
-    public void setPrimaryContact(List<Contact> newContacts) {
+    public static void setPrimaryContact(List<Contact> newContacts) {
         Map<Id, Boolean> accountHasPrimary = new Map<Id, Boolean>();
         Map<Id, List<Contact>> accountToContacts = new Map<Id, List<Contact>>();
 
